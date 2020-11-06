@@ -65,10 +65,6 @@ to exit
       ]
     ]
   ]
-  if (random 10 = 9) [
-    setxy random-xcor random-ycor
-    die
-  ]
 end
 
 to order
