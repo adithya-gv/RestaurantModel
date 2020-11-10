@@ -181,15 +181,12 @@ to sit
 end
 
 to infect
-  ; for now, just everything in a semicircle in the direction that the turtle is facing
-  ; call breath infect or sneeze infect based on probability
-  ;TODO
   foreach sort turtles [the-turtle ->
     foreach sort turtles [other-turtle ->
       if ([infected] of the-turtle and [who] of the-turtle != [who] of other-turtle) [
         let dist sqrt (([xcor] of the-turtle - [xcor] of other-turtle)^ 2 + ([ycor] of the-turtle - [ycor] of other-turtle)^ 2)
         let angle tan(([ycor] of the-turtle - [ycor] of other-turtle) / ([xcor] of the-turtle - [xcor] of other-turtle))
-        if (abs(angle - [heading] of the-turtle) <= 30) [
+        if (abs(angle - [heading] of the-turtle) <= 30) [ ;Apply probability here
           ask other-turtle [
             set infected True
             set color red
